@@ -13,9 +13,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Convert README to PDF
-        uses: docker://pandoc/core:3.8
+        uses: docker://pandoc/latex:latest
         with:
           args: >-
+            --pdf-engine=xelatex
             -o Archi.pdf
             README.md
 
