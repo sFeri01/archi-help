@@ -16,7 +16,6 @@ jobs:
         uses: docker://pandoc/core:3.8
         with:
           args: >-
-            --pdf-engine=xelatex
             -o Archi.pdf
             README.md
 
