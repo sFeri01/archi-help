@@ -26,3 +26,4 @@ jobs:
           files: Archi.pdf
           tag_name: latest-pdf
           body: "Auto-generated PDF from README.md"
+          release: true
