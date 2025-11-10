@@ -17,6 +17,7 @@ jobs:
         with:
           args: >-
             --pdf-engine=xelatex
+            --toc
             -o Archi.pdf
             README.md
 
