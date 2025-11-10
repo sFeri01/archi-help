@@ -1,0 +1,26 @@
+name: Generate PDF from README
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Convert README to PDF
+        uses: pandoc/pandoc-action@v4
+        with:
+          args: "--pdf-engine=xelatex -o README.pdf README.md"
+
+      - name: Release PDF
+        uses: softprops/action-gh-release@v2
+        with:
+          files: README.pdf
+          tag_name: latest-pdf
+          body: "Auto-generated PDF from README.md"
+          prerelease: true
