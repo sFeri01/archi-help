@@ -41,8 +41,10 @@
 - `SR`
 - Flagek
   - `CS`
+  
+  Work in progress...
 
-WIP
+<!-- TODO befejezni -->
 
 ## Hello world
 
@@ -58,6 +60,31 @@ WIP
 .exit
 end
 ```
+
+## Ugrások
+
+### `jmp` Feltétel nélküli ugrás
+
+```asm
+hello:
+  mov ah, 09h
+  mov dx, offset msg
+  int 21h 
+```
+
+```asm
+jmp hello
+```
+
+### ` jz` Ugrás ha a ZERO flag 1
+
+## Regiszter nullázás
+
+```asm
+xor ax, ax
+```
+
+Ugyanaz, mint `mov ax, 0`, de gyorsabb
 
 ## `int 10h` BIOS interrupt
 
@@ -130,4 +157,20 @@ jz Program_vege
 mov ah, 09h
 mov dx, offset msg
 int 21h 
+```
+
+## Loop
+
+A `loop` utasítás 1-gyel csökenti `CX`-et és ha ezután ez nem 0, ugrik a megjelölt címkére
+
+```asm
+mov cx, 5   ; Hányszor szeretnénk a cilust lefuttatni
+loop_start:
+    ; Kiírjuk, hogy "Hello "
+    mov ah, 09h
+    mov dx, offset msg    ; msg db "Hello $" 
+    int 21h 
+
+    ; Csökkenti `CX`-et. Ha nem 0, ugrás loop_start-ra
+    loop loop_start 
 ```
