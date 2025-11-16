@@ -198,7 +198,7 @@ int 21h
 A `loop` utasítás 1-gyel csökenti `CX`-et és ha ezután ez nem 0, ugrik a megjelölt címkére
 
 ```asm
-mov cx, 5   ; Hányszor szeretnénk a cilust lefuttatni
+mov cx, 5   ; Hányszor szeretnénk a ciklust lefuttatni
 loop_start:
     ; Kiírjuk, hogy "Hello "
     mov ah, 09h
