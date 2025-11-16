@@ -18,6 +18,7 @@ jobs:
           args: >-
             --pdf-engine=xelatex
             -V geometry:margin=2cm
+            -V lang=hu
             --template eisvogel
             --listings
             --toc
