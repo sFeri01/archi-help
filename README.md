@@ -11,7 +11,7 @@
 
 - ha `X`-re végződik, 16 bit
   - pl `AX`
-- Ha `A`-ra vagy `B`-re végződik (**H**igh, **L**ow), 8 bit
+- Ha `H`-ra vagy `L`-re végződik (**H**igh, **L**ow), 8 bit
   - pl `AH`, az `AX` felső 8 bitje
 
 ### Általános célú regiszterek
@@ -26,8 +26,8 @@
 
 ### Index regiszterek
 
-- `SI`
-- `DI`
+- `SI` String forrás cím
+- `DI` String cél cím
 
 ### Mutató regiszterek
 
@@ -37,15 +37,19 @@
   - A verem egy elemét jelöli
 
 ### Státuszregiszter
-
+<!-- https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm -->
 - `SR`
 - Flagek
-  - `CS`
+  - `CF` Carry flag <!-- TODO Carry leírás -->
+  - `ZF` Zero flag
+    - 1, ha az utasítás eredménye 0
+  - `SF` Sign flag
+    - 1, ha az utasítás eredménye negatív
+  - `OF` Overflow flag
+    - 1, ha túlcsordulás történt
+  - Parity, Auxiallary
+    - Mi nem használjuk
   
-  Work in progress...
-
-<!-- TODO befejezni -->
-
 ## Hello world
 
 ```asm
@@ -76,7 +80,39 @@ hello:
 jmp hello
 ```
 
-### ` jz` Ugrás ha a ZERO flag 1
+### Feltételes ugrások
+
+Ugrás a [státuszregiszterben](#státuszregiszter) található flagek alapján
+
+- `jz`
+  - Jump if Zero
+  - Ugrás, ha az előző utasítás eredménye 0
+- `jnz`
+  - Jump if not Zero
+  - Ugrás, ha az előző utasítás eredménye nem 0
+- `jc`, `jnc`
+  - Jump if carry/no carry
+- `jo`, `jno`
+  - Jump if overfllow/no overflow
+- `js`, `jns`
+  - Jump if Signed (negative)/Jump is not Signed (Positive or zero)
+
+Példa: [gombnyomás kérése](#gombnyomás-kérése-ah--0)
+
+```asm
+xor ax, ax
+int 16h
+```
+A `cmp al, 27` beállítja a Zero flaget, ha al=27
+
+
+```asm
+cmp al, 27 ; ESC
+
+jz Program_vege
+```
+
+
 
 ## Regiszter nullázás
 
