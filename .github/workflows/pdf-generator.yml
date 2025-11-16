@@ -18,6 +18,8 @@ jobs:
           args: >-
             --pdf-engine=xelatex
             -V geometry:margin=2cm
+            --template eisvogel
+            --listings
             --toc
             -o Archi.pdf
             README.md
