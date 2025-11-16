@@ -17,6 +17,7 @@ jobs:
         with:
           args: >-
             --pdf-engine=xelatex
+            -V geometry:margin=2cm
             --toc
             -o Archi.pdf
             README.md
