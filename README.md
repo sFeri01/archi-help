@@ -103,16 +103,14 @@ Példa: [gombnyomás kérése](#gombnyomás-kérése-ah--0)
 xor ax, ax
 int 16h
 ```
-A `cmp al, 27` beállítja a Zero flaget, ha al=27
 
+A `cmp al, 27` beállítja a Zero flaget, ha al=27
 
 ```asm
 cmp al, 27 ; ESC
 
 jz Program_vege
 ```
-
-
 
 ## Regiszter nullázás
 
