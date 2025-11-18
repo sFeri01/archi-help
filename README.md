@@ -65,6 +65,60 @@
 end
 ```
 
+## Alap utasítások
+
+### `mov` Adatmozgatása (másolása)
+
+```asdm
+mov ax, 5
+mov bx, ax
+```
+
+### `add` / `sub` Összeadás/kivonás
+
+```asm
+add ax, 5    ; Eredmény az ax-ben
+sub bx, ax   ; bx-ax. Eredmény a bx-ben
+```
+
+### `inc` / `dec` 1-gyel növelés/csökkentés (increment/decrement)
+
+```asm
+mov ax, 5
+inc ax      ; 6
+dec ax      ; 5
+```
+
+### `cmp` Összehasonlítás
+
+Lényegében egy kivonás, ami nem tárolja el az eredményt, csak a a status flageket tárolja [feltételes ugrásokhoz](#feltételes-ugrások) használjuk
+
+```asm
+cmp ax, bx
+```
+
+Flagek (ZF: Zero Flag, OF: Overflow flag):
+
+Megjegyzés: Csakakkor működik így előjel nélküli számként használjuk a regisztert (16 bit esetén 0-65535 között, 8 bit esetén 0-255)
+
+- ZF = 1, ha ax = bx
+  - mert ax-bx = 0
+- ZF = 0, OF = 0, ha ax > bx
+  - mert ax-bx > 0
+- ZF = 0, OF = 1, ha ax < bx
+  - mert ax-bx < 0
+  - (alulcsordulás, ha előjel nélküli számokkal dolgozunk)
+
+### `mul`
+
+Work in progress...
+<!-- TODO -->
+
+### `div`
+
+Work in progress...
+<!-- TODO -->
+
 ## Ugrások
 
 ### `jmp` Feltétel nélküli ugrás
