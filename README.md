@@ -7,6 +7,8 @@
 
 ## Regiszterek
 
+[https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm](https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm)
+
 ### Alapszabály
 
 - ha `X`-re végződik, 16 bit
@@ -37,7 +39,7 @@
   - A verem egy elemét jelöli
 
 ### Státuszregiszter
-<!-- https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm -->
+
 - `SR`
 - Flagek
   - `CF` Carry flag
