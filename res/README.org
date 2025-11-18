@@ -44,7 +44,6 @@
   
   Work in progress...
 
-<!-- TODO befejezni -->
 
 ** Hello world
 
