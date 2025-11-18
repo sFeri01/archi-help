@@ -109,15 +109,61 @@ Megjegyzés: Csakakkor működik így előjel nélküli számként használjuk a
   - mert ax-bx < 0
   - (alulcsordulás, ha előjel nélküli számokkal dolgozunk)
 
-### `mul`
+### `mul` Szorzás
 
-Work in progress...
-<!-- TODO -->
+#### 8 bites szorzás
 
-### `div`
+A `mul` utasítás az `AL`-t szorozza be a kapott értékkel és az `AX`-be (16 bit!) teszi az eredményt
 
-Work in progress...
-<!-- TODO -->
+```asm
+mov al, 5
+mov ah, 3
+
+mul ah    ; ax = al*ah = 15
+```
+
+#### 16 bites szorzás
+
+A `mul` utasítás az `AX`-et szorozza be a kapott értékkel és `DX:AX`-be (`DX` felső 16 bit, `AX` alsó 16 bit => 32 bit) teszi az eredményt
+
+```asm
+mov ax, 5000
+mov bx, 3000
+
+mul bx   ; DX:AX = 15000000
+```
+
+### `div` (Madadékos) Osztás
+
+#### 8 bites osztás
+
+Az `AX`-et (16 bites) osztja el a kapott értékkel. `AL`-be kerül az (egész) hányados, `AH`-ba a maradék
+
+```asm
+mov ax, 12345
+mov bl, 100
+
+div bl    ; AX / BL
+
+;AL = 123   (Hányados)
+;AH = 45    (Haradék)
+```
+
+#### 16 bites osztás
+
+A `DX:AX` (32 bites) regiszterpárt osztja el a kapott 16 bites értékkel. `AX`-be kerül a hányados, `DX`-be a maradék.
+
+```asm
+mov ax, 18416  ; 18416 dec = 49F0h
+mov dx, 2      ; DX:AX = 000249F0h = 150000
+
+mov bx, 4000
+
+div bx    ; DX:AX / BX
+
+; AX = 37   (Hányados)
+; DX = 2000 (Maradék)
+```
 
 ## Ugrások
 
