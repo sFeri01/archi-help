@@ -167,6 +167,13 @@ div bx    ; DX:AX / BX
 ; DX = 2000 (Maradék)
 ```
 
+### Logikai műveletek
+
+- `and`
+- `or`
+- `xor`
+- `not`
+
 ## Ugrások
 
 ### `jmp` Feltétel nélküli ugrás
