@@ -20,7 +20,7 @@
   - `AH`, `AL`
 - `BX` Base - Memóriacímzésnél használjuk
   - `BH`, `BL`
-- `CX` Cilusnál használjuk
+- `CX` Ciklusnál használjuk
   - A `loop` utasítás minden ciklusa 1-gyel csökkenti
 - `DX`
 
@@ -67,9 +67,9 @@ end
 
 ## Alap utasítások
 
-### `mov` Adatmozgatása (másolása)
+### `mov` Adat mozgatása (másolása)
 
-```asdm
+```asm
 mov ax, 5
 mov bx, ax
 ```
@@ -97,17 +97,16 @@ Lényegében egy kivonás, ami nem tárolja el az eredményt, csak a a status fl
 cmp ax, bx
 ```
 
-Flagek (ZF: Zero Flag, OF: Overflow flag):
+Flagek (ZF: Zero Flag, CF: Carry Flag):
 
-Megjegyzés: Csakakkor működik így előjel nélküli számként használjuk a regisztert (16 bit esetén 0-65535 között, 8 bit esetén 0-255)
+Megjegyzés: Csak akkor működik így, ha előjel nélküli számként használjuk a regisztert (16 bit esetén 0-65535 között, 8 bit esetén 0-255)
 
 - ZF = 1, ha ax = bx
   - mert ax-bx = 0
-- ZF = 0, OF = 0, ha ax > bx
+- ZF = 0, CF = 0, ha ax > bx
   - mert ax-bx > 0
-- ZF = 0, OF = 1, ha ax < bx
+- ZF = 0, CF = 1, ha ax < bx
   - mert ax-bx < 0
-  - (alulcsordulás, ha előjel nélküli számokkal dolgozunk)
 
 ### `mul` Szorzás
 
@@ -117,9 +116,9 @@ A `mul` utasítás az `AL`-t szorozza be a kapott értékkel és az `AX`-be (16 
 
 ```asm
 mov al, 5
-mov ah, 3
+mov bl, 3
 
-mul ah    ; ax = al*ah = 15
+mul bl    ; ax = al*bl = 15
 ```
 
 #### 16 bites szorzás
@@ -195,7 +194,7 @@ Ugrás a [státuszregiszterben](#státuszregiszter) található flagek alapján
 - `jo`, `jno`
   - Jump if overfllow/no overflow
 - `js`, `jns`
-  - Jump if Signed (negative)/Jump is not Signed (Positive or zero)
+  - Jump if Signed (negative)/Jump if not Signed (Positive or zero)
 
 Példa: [gombnyomás kérése](#gombnyomás-kérése-ah--0)
 
@@ -237,7 +236,7 @@ int 10h
 
 ```asm
 mov ax, 0013h    ; AH = 0, AL = 13h
-int 10h;
+int 10h
 ```
 
 ### Kurzor pozíció `AH = 02h`
