@@ -40,14 +40,15 @@
 <!-- https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm -->
 - `SR`
 - Flagek
-  - `CF` Carry flag <!-- TODO Carry leírás -->
+  - `CF` Carry flag
+    - 1, ha előjel nélküli összeadásnál átvitel (carry), vagy kivonásnál kölcsönvétel (borrow) történik
   - `ZF` Zero flag
     - 1, ha az utasítás eredménye 0
   - `SF` Sign flag
     - 1, ha az utasítás eredménye negatív
   - `OF` Overflow flag
-    - 1, ha túlcsordulás történt
-  - Parity, Auxiallary
+    - 1, ha túlcsordulás történt (előjeles számoknál)
+  - Parity, Auxiliary
     - Mi nem használjuk
   
 ## Hello world
