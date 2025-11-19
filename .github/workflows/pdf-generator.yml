@@ -31,4 +31,4 @@ jobs:
           files: Archi.pdf
           tag_name: latest-pdf
           name: Release ${{ github.run_number }}
-          body: "Auto-generated PDF from README.md"
+          body: "Auto-generated PDF from README.md from commit ${{ github.sha }}"
