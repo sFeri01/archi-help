@@ -167,6 +167,13 @@ div bx    ; DX:AX / BX
 ; DX = 2000 (Maradék)
 ```
 
+### `shl`/`shr` Balra/jobbra shiftelés
+
+Megjegyzés:
+
+- A balra shiftelés 2-vel szorzás
+- A jobbra shiftelés 2-vel osztás
+
 ### Logikai műveletek
 
 - `and`
