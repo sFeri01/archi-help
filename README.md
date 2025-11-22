@@ -167,12 +167,36 @@ div bx    ; DX:AX / BX
 ; DX = 2000 (Maradék)
 ```
 
+### `shl`/`shr` Balra/jobbra shiftelés
+
+Megjegyzés:
+
+- A balra shiftelés 2-vel szorzás
+- A jobbra shiftelés 2-vel osztás
+
 ### Logikai műveletek
 
 - `and`
 - `or`
 - `xor`
 - `not`
+
+## `push` / `pop` Verem kezelés
+
+- `push`: A verem tetejére tesz egy értéket.
+- `pop`: A verem tetejéről levesz egy értéket.
+
+Ezzel elmenthetjük a regiszterek állapotát, majd később visszaállíthatjuk.
+
+```asm
+mov ax, 1234h   ; ax = 1234h
+push ax         ; Verem tetejére tesszük ax értékét
+
+mov ax, 5678h   ; ax = 5678h
+pop bx          ; Visszaállítjuk az eredeti értéket bx-be
+
+; Most bx = 1234h
+```
 
 ## Ugrások
 

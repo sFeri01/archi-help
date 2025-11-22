@@ -18,6 +18,7 @@ jobs:
           args: >-
             --pdf-engine=xelatex
             -V geometry:margin=2cm
+            -V lang=hu
             --template eisvogel
             --listings
             --toc
@@ -31,4 +32,4 @@ jobs:
           files: Archi.pdf
           tag_name: latest-pdf
           name: Release ${{ github.run_number }}
-          body: "Auto-generated PDF from README.md"
+          body: "Auto-generated PDF from README.md from commit ${{ github.sha }}"
