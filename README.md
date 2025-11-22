@@ -289,6 +289,14 @@ jz Program_vege
 
 [http://bbc.nvg.org/doc/Master%20512%20Technical%20Guide/m512techb_int21.htm](http://bbc.nvg.org/doc/Master%20512%20Technical%20Guide/m512techb_int21.htm)
 
+### Karakter kiírás `AH = 02h`
+
+```asm
+mov ah, 02h
+mov dl, "a"
+int 21h 
+```
+
 ### String kiírás `AH = 09h`
 
 ```asm
