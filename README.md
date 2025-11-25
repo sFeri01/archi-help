@@ -79,8 +79,22 @@ end
 
 [https://www.ascii-code.com/](https://www.ascii-code.com/)
 
+Megjegyzés: Számokhoz és betűkhöz nem szükséges ASCII kódot használni. Beírhatjuk a karaktert is "" vagy '' jellel.
+
+```asm
+; Ezek megegyeznek
+mov al, 49
+mov al, '1'
+mov al, "1"
+
+; Ezek is
+cmp al, 65
+cmp al, 'A'
+cmp al, "a"
+```
+
 |Karakter/gomb              |ASCII    |
-|:---                        |:---      |
+|:---                       |:---     |
 |ESC                        |27       |
 |Enter (CR)                 |13       |
 |Space                      |32       |
