@@ -68,6 +68,32 @@
 end
 ```
 
+## Fontosabb ASCII/scan kódok
+
+### ASCII
+
+[https://www.ascii-code.com/](https://www.ascii-code.com/)
+
+|Karakter/gomb              |ASCII    |
+|---                        |---      |
+|ESC                        |27       |
+|Enter (CR)                 |13       |
+|Space                      |32       |
+|Számjegyek (0 - 9)         |48 - 57  |
+|Angol abc, nagybetű (A-Z)  |65 - 90  |
+|Angol abc, kisbetű (a - z) |97 - 122 |
+
+### Scan
+
+[https://www.millisecond.com/support/docs/current/html/language/scancodes.htm](https://www.millisecond.com/support/docs/current/html/language/scancodes.htm)
+
+|Gomb                       |Scan     |
+|----                       |---      |
+|Fel                        |72       |
+|Le                         |80       |
+|Balra                      |75       |
+|Jobbra                     |77       |
+
 ## Alap utasítások
 
 ### `mov` Adat mozgatása (másolása)
@@ -291,9 +317,9 @@ Billentyűzet funkciók
 
 ### Gombnyomás kérése `AH = 0`
 
-`AH`-ba menti a [scan code](https://www.millisecond.com/support/docs/current/html/language/scancodes.htm)-ot,
+`AH`-ba menti a scan code-ot,
 
-`AL`-be az [ASCII](https://www.ascii-code.com/) kódot
+`AL`-be az ASCII kódot
 
 #### Beolvasás
 
