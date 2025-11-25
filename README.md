@@ -1,4 +1,7 @@
-# Assembly segédlet
+---
+title: Archi segédlet
+header-includes: \newcounter{none}
+---
 
 ## Fejlesztőkörnyezet
 

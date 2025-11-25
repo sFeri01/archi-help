@@ -23,7 +23,6 @@ jobs:
             -V table-use-row-colors
             --template eisvogel
             -V secnumdepth=3
-            -V header-includes=newcounter{none}
             --syntax-highlighting=idiomatic
             --toc
             -V toc-own-page
