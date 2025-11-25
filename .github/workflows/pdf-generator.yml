@@ -19,11 +19,14 @@ jobs:
             --pdf-engine=xelatex
             -V geometry:margin=2cm
             -V lang=hu
+            -V title:"Assembly segédlet"
+            -V "header-includes=\usepackage{setspace}\n\setstretch{0.9}\n\newcounter{none}"
             -V table-use-row-colors
             --template eisvogel
             -V secnumdepth=3
             --syntax-highlighting=idiomatic
             --toc
+            --toc-own-page
             --number-sections
             --shift-heading-level-by=-1
             -o Archi.pdf

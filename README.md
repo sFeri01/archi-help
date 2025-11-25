@@ -1,10 +1,3 @@
----
-title: Archi segédlet
-secnumdepth: 3
-header-includes:
-  - \newcounter{none}
----
-
 ## Fejlesztőkörnyezet
 
 - Visual Studio Code
