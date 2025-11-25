@@ -19,17 +19,41 @@ jobs:
             --pdf-engine=xelatex
             -V geometry:margin=2cm
             -V lang=hu
+            -V table-use-row-colors
             --template eisvogel
-            --listings
+            -V secnumdepth=3
+            --syntax-highlighting=idiomatic
             --toc
             --number-sections
+            --shift-heading-level-by=-1
             -o Archi.pdf
+            -f markdown+pipe_tables
+            README.md
+
+      - name: Convert README to tex for debug
+        uses: docker://pandoc/extra:latest
+        with:
+          args: >-
+            --pdf-engine=xelatex
+            -V geometry:margin=2cm
+            -V lang=hu
+            -V table-use-row-colors
+            --template eisvogel
+            -V secnumdepth=3
+            --syntax-highlighting=idiomatic
+            --toc
+            --number-sections
+            --shift-heading-level-by=-1
+            -o Archi.tex
+            -f markdown+pipe_tables
             README.md
 
       - name: Release PDF
         uses: softprops/action-gh-release@v2
         with:
-          files: Archi.pdf
+          files: |
+            Archi.pdf
+            Archi.tex
           tag_name: latest-pdf
           name: Release ${{ github.run_number }}
           body: "Auto-generated PDF from README.md from commit ${{ github.sha }}"

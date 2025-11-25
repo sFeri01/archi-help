@@ -1,4 +1,9 @@
-# Archi segédlet
+---
+title: Archi segédlet
+secnumdepth: 3
+header-includes:
+  - \newcounter{none}
+---
 
 ## Fejlesztőkörnyezet
 
@@ -75,7 +80,7 @@ end
 [https://www.ascii-code.com/](https://www.ascii-code.com/)
 
 |Karakter/gomb              |ASCII    |
-|---                        |---      |
+|:---                        |:---      |
 |ESC                        |27       |
 |Enter (CR)                 |13       |
 |Space                      |32       |
@@ -88,7 +93,7 @@ end
 [https://www.millisecond.com/support/docs/current/html/language/scancodes.htm](https://www.millisecond.com/support/docs/current/html/language/scancodes.htm)
 
 |Gomb                       |Scan     |
-|----                       |---      |
+|:----                      |:---     |
 |Fel                        |72       |
 |Le                         |80       |
 |Balra                      |75       |
