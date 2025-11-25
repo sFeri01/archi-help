@@ -396,3 +396,44 @@ loop_start:
     ; Csökkenti `CX`-et. Ha nem 0, ugrás loop_start-ra
     loop loop_start 
 ```
+
+## Memória kezelés
+
+```asm
+.data
+    msg db "Hello$" 
+```
+
+```asm
+; A string helye (pointer) kerül a di-be
+; A pointer a string első byte-jára mutat
+; ('H')
+mov di, offset msg
+
+; DI által jelölt első byte ("h") betöltése
+; Karakter esetén 8 bites regiszterbe 
+mov al, [di]
+
+; DI után léptet 2 byte-ot
+; és az ott jelölt karaktert tölti be
+; (3. karakter - 'l')
+mov al, [di + 2]
+
+; DI = DI + 1
+; DI pointert egy byte-tal eltoljuk,
+; így a második karakterre mutat
+inc di
+
+; Második karakter ('e')
+mov al, [di]
+
+; DI-vel jelölt byte-ot átírjuk
+; Először egy 8 bites regiszterbe kell bemásolni
+; (pl. BL)
+; Így a memóriában tárolt string "aello" lesz
+mov bl, 'a'
+mov [di], bl
+
+; Itt is tudunk offsetet használni:
+mov [di + 2], bl  ; "aealo"
+```
