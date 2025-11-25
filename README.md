@@ -1,6 +1,4 @@
----
-title: Archi segédlet
----
+# Assembly segédlet
 
 ## Fejlesztőkörnyezet
 

@@ -30,7 +30,7 @@ jobs:
             --number-sections
             --shift-heading-level-by=-1
             -o Archi.pdf
-            -f markdown+pipe_tables
+            -f markdown+pipe_tables+yaml_metadata_block
             README.md
 
       - name: Release PDF
