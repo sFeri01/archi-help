@@ -90,7 +90,7 @@ mov al, "1"
 ; Ezek is
 cmp al, 65
 cmp al, 'A'
-cmp al, "a"
+cmp al, "A"
 ```
 
 |Karakter/gomb              |ASCII    |
@@ -193,7 +193,7 @@ mov bl, 100
 div bl    ; AX / BL
 
 ;AL = 123   (Hányados)
-;AH = 45    (Haradék)
+;AH = 45    (Maradék)
 ```
 
 #### 16 bites osztás
