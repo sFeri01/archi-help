@@ -276,6 +276,22 @@ cmp al, 27 ; ESC
 jz Program_vege
 ```
 
+### További feltételes ugrások
+
+Megjegyzés: ez nem része a tananayagnak, de hasznos lehet
+
+| Előjeles (Signed)   | Jelentés              | Előjel nélküli (Unsigned) | Jelentés              |
+| :------------------ | :-------------------- | :------------------------ | :-------------------- |
+| JG                  | Nagyobb               | JA                        | Fölött (Above)        |
+| JGE                 | Nagyobb vagy egyenlő  | JAE                       | Fölött vagy egyenlő   |
+| JL                  | Kisebb                | JB                        | Alatt (Below)         |
+| JLE                 | Kisebb vagy egyenlő   | JBE                       | Alatt vagy egyenlő    |
+
+- `JA`: Jump if Above (ugorj, ha fölött/nagyobb van). Ez a signed `JG` (Jump if Greater) párja.
+- `JB`: Jump if Below (ugorj, ha alatt/kisebb van). Ez a signed `JL` (Jump if Less) párja.
+- `JAE`: Jump if Above or Equal (ugorj, ha fölött vagy egyenlő). Ez a signed `JGE` (Jump if Greater or Equal) párja.
+- `JBE`: Jump if Below or Equal (ugorj, ha alatt vagy egyenlő). Ez a signed `JLE` (Jump if Less or Equal) párja.
+
 ## Regiszter nullázás
 
 ```asm
