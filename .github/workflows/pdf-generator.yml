@@ -19,7 +19,7 @@ jobs:
             --pdf-engine=xelatex
             -V geometry:margin=2cm
             -V lang=hu
-            -V "title:Archi segédlet"
+            -V title="Archi segédlet"
             -V table-use-row-colors
             --template eisvogel
             -V secnumdepth=3
