@@ -290,7 +290,7 @@ jz Program_vege
 
 ### További feltételes ugrások
 
-Megjegyzés: ez nem része a tananayagnak, de hasznos lehet
+Megjegyzés: ez nem része a tananyagnak, de hasznos lehet
 
 | Előjeles (Signed)   | Jelentés              | Előjel nélküli (Unsigned) | Jelentés              |
 | :------------------ | :-------------------- | :------------------------ | :-------------------- |
