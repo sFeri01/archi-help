@@ -1,3 +1,7 @@
+---
+title: Archi segédlet
+---
+
 ## Fejlesztőkörnyezet
 
 - Visual Studio Code
