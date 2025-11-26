@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - edit
 
 jobs:
   build:
@@ -11,6 +12,15 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Set PDF filename
+        id: pdf-name
+        run: |
+          if [ "${{ github.ref }}" == "refs/heads/edit" ]; then
+            echo "filename=Archi_edit.pdf" >> $GITHUB_OUTPUT
+          else
+            echo "filename=Archi.pdf" >> $GITHUB_OUTPUT
+          fi
 
       - name: Convert README to PDF
         uses: docker://pandoc/extra:latest
@@ -28,7 +38,7 @@ jobs:
             -V toc-own-page
             --number-sections
             --shift-heading-level-by=-1
-            -o Archi.pdf
+            -o ${{ steps.pdf-name.outputs.filename }}
             -f markdown+pipe_tables+yaml_metadata_block
             README.md
 
@@ -36,8 +46,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            Archi.pdf
-            Archi.tex
+            ${{ steps.pdf-name.outputs.filename }}
           tag_name: latest-pdf
           name: Release ${{ github.run_number }}
           body: "Auto-generated PDF from README.md from commit ${{ github.sha }}"
