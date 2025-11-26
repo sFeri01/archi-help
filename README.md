@@ -375,3 +375,65 @@ loop_start:
     ; Csökkenti `CX`-et. Ha nem 0, ugrás loop_start-ra
     loop loop_start 
 ```
+
+## Grafika
+
+320x200 graikus mód
+
+```asm
+mov ax, 13h
+int 10h;
+```
+
+Képernyő memória beállítása
+
+```asm
+mov ax, 0a000h  ; Videó kezdőcím pointer
+mov es, ax      ; Extra Segment register
+```
+
+X és Y koordináta
+
+```asm
+mov dl, 100   ; X
+mov dh, 100   ; Y
+push dx
+```
+
+Pixel helyének számítása
+(Pixel = Y*320 + X)
+
+```asm
+rajz:
+
+; AX-be tesszük az Y koordinátát
+    pop dx
+    xor ah, ah
+    mov al, dh  
+    push dx
+
+; Szorozzuk 320-szal
+    mov bx, 320
+    mul bx
+
+; Hozzáadjuk az X koordinátát
+    pop dx
+    add al, dl
+
+    jnc pixel
+
+    inc ah  ; ha túlcsordul, akkor ah-t növeljük
+
+    jmp pixel
+```
+
+Pixel kirajzolása
+
+```asm
+pixel:
+    push dx
+    mov di, ax
+
+    mov al, 128       ; Pixel színe
+    mov es:[di], al   ; Video
+```
