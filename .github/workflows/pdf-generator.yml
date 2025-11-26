@@ -19,17 +19,25 @@ jobs:
             --pdf-engine=xelatex
             -V geometry:margin=2cm
             -V lang=hu
+            -V title="Archi segédlet"
+            -V table-use-row-colors
             --template eisvogel
-            --listings
+            -V secnumdepth=3
+            --syntax-highlighting=idiomatic
             --toc
+            -V toc-own-page
             --number-sections
+            --shift-heading-level-by=-1
             -o Archi.pdf
+            -f markdown+pipe_tables+yaml_metadata_block
             README.md
 
       - name: Release PDF
         uses: softprops/action-gh-release@v2
         with:
-          files: Archi.pdf
+          files: |
+            Archi.pdf
+            Archi.tex
           tag_name: latest-pdf
           name: Release ${{ github.run_number }}
           body: "Auto-generated PDF from README.md from commit ${{ github.sha }}"
