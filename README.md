@@ -10,8 +10,6 @@ header-includes: \newcounter{none}
 
 ## Regiszterek
 
-[https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm](https://www.tutorialspoint.com/assembly_programming/assembly_registers.htm)
-
 ### Alapszabály
 
 - ha `X`-re végződik, 16 bit
@@ -75,8 +73,6 @@ end
 
 ### ASCII
 
-[https://www.ascii-code.com/](https://www.ascii-code.com/)
-
 Megjegyzés: Számokhoz és betűkhöz nem szükséges ASCII kódot használni. Beírhatjuk a karaktert is "" vagy '' jellel.
 
 ```asm
@@ -101,8 +97,6 @@ cmp al, "A"
 |Angol abc, kisbetű (a - z) |97 - 122 |
 
 ### Scan
-
-[https://www.millisecond.com/support/docs/current/html/language/scancodes.htm](https://www.millisecond.com/support/docs/current/html/language/scancodes.htm)
 
 |Gomb                       |Scan     |
 |:----                      |:---     |
@@ -314,8 +308,6 @@ Ugyanaz, mint `mov ax, 0`, de gyorsabb
 
 ## `int 10h` BIOS interrupt
 
-[https://en.wikipedia.org/wiki/INT_10H#List_of_supported_functions](https://en.wikipedia.org/wiki/INT_10H#List_of_supported_functions)
-
 ### Video mode / text mode `AH = 0`
 
 #### 80x25 Text mode ("képernyő törlése") `AL = 03h`
@@ -346,8 +338,6 @@ int 10h
 
 Billentyűzet funkciók
 
-[https://en.wikipedia.org/wiki/INT_16H#List_of_services_of_the_INT_16_h](https://en.wikipedia.org/wiki/INT_16H#List_of_services_of_the_INT_16_h)
-
 ### Gombnyomás kérése `AH = 0`
 
 `AH`-ba menti a scan code-ot,
@@ -369,8 +359,6 @@ jz Program_vege
 ```
 
 ## `int 21h` DOS interrupt
-
-[http://bbc.nvg.org/doc/Master%20512%20Technical%20Guide/m512techb_int21.htm](http://bbc.nvg.org/doc/Master%20512%20Technical%20Guide/m512techb_int21.htm)
 
 ### Karakter kiírás `AH = 02h`
 
